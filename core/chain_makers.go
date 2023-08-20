@@ -393,6 +393,12 @@ func makeHeader(chain consensus.ChainReader, parent *types.Block, state *state.S
 			header.GasLimit = CalcGasLimit(parentGasLimit, parentGasLimit)
 		}
 	}
+	if chain.Config().IsCancun(header.Number, header.Time) {
+		var zero uint64
+		header.BlobGasUsed = &zero
+		header.ExcessBlobGas = &zero
+		// header.BeaconRoot = &common.Hash{}
+	}
 	return header
 }
 
