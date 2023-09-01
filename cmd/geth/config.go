@@ -195,6 +195,10 @@ func makeFullNode(ctx *cli.Context) (*node.Node, ethapi.Backend) {
 		utils.RegisterFullSyncTester(stack, eth, ctx.Path(utils.SyncTargetFlag.Name))
 	}
 
+	if ctx.IsSet(utils.EsURLFlag.Name) {
+		params.EsNodeURL = ctx.String(utils.EsURLFlag.Name)
+	}	
+
 	// Start the dev mode if requested, or launch the engine API for
 	// interacting with external consensus client.
 	if ctx.IsSet(utils.DeveloperFlag.Name) {

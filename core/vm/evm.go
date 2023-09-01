@@ -52,6 +52,11 @@ func (evm *EVM) precompile(addr common.Address) (PrecompiledContract, bool) {
 		precompiles = PrecompiledContractsHomestead
 	}
 	p, ok := precompiles[addr]
+
+	if evm.Config.IsEthStorage && !ok {
+		p, ok = PrecompiledContractsES[addr]
+	}
+
 	return p, ok
 }
 

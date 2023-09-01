@@ -28,6 +28,7 @@ type Config struct {
 	Tracer                  EVMLogger // Opcode logger
 	NoBaseFee               bool      // Forces the EIP-1559 baseFee to 0 (needed for 0 price calls)
 	EnablePreimageRecording bool      // Enables recording of SHA3/keccak preimages
+	IsEthStorage            bool      // Enables EthStorage related precompiles
 	ExtraEips               []int     // Additional EIPS that are to be enabled
 }
 

@@ -602,6 +602,12 @@ var (
 		Category:  flags.MiscCategory,
 	}
 
+	EsURLFlag = &cli.StringFlag{
+		Name:     "es.url",
+		Usage:    "EthStorage node rpc url",
+		Category: flags.MiscCategory,
+	}
+
 	// RPC settings
 	IPCDisabledFlag = &cli.BoolFlag{
 		Name:     "ipcdisable",
